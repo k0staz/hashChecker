@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\HashChecker.dir/objects.a
+C:\dev\msys64\mingw32\bin\ar.exe cr CMakeFiles\HashChecker.dir/objects.a @CMakeFiles\HashChecker.dir\objects1.rsp
+C:\dev\msys64\mingw32\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\HashChecker.dir/objects.a -Wl,--no-whole-archive  -o HashChecker.exe -Wl,--out-implib,libHashChecker.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\HashChecker.dir\linklibs.rsp

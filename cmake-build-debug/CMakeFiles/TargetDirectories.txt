@@ -1,0 +1,3 @@
+C:/Users/kosta/CLionProjects/HashChecker/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/kosta/CLionProjects/HashChecker/cmake-build-debug/CMakeFiles/HashChecker.dir
+C:/Users/kosta/CLionProjects/HashChecker/cmake-build-debug/CMakeFiles/rebuild_cache.dir
