@@ -43,6 +43,10 @@ md5::md5(std::string text) {
     init();
     calculate(text.begin(), text.end());
 }
+md5::md5(std::vector<char> file) {
+    init();
+    calculate(file.begin(), file.end());
+}
 
 void md5::init() {
     //load initialization constants
@@ -76,11 +80,12 @@ void md5::init() {
     table_const.insert(table_const.end(), { 0xf7537e82, 0xbd3af235, 0x2ad7d2bb, 0xeb86d391 });
 }
 
-void md5::calculate(std::string::iterator strBegin, std::string::iterator strEnd) {
+template<class iterator>
+void md5::calculate(iterator strBegin, iterator strEnd) {
     std::vector<bit8> ch_vector;
     std::copy(strBegin, strEnd, std::back_inserter(ch_vector));
     prepare_input(ch_vector);
-    //TODO: add check of size
+
     for(auto it = ch_vector.begin(), it2 = ch_vector.begin() + 64; it != ch_vector.end(); it+=64, it2 += 64){
         process_block(it, it2);
     }
@@ -114,6 +119,7 @@ std::vector<md5::bit32> md5::convert_to32(std::vector<bit8>& ch_vector) {
 }
 
 void md5::process_block(std::vector<bit8>::iterator blBegin, std::vector<bit8>::iterator blEnd) {
+    std::cout << "Processing block" << std::endl;
     std::vector<bit32> abcd({state[0], state[1], state[2], state[3]});
     std::vector<bit8> temp;
     std::copy(blBegin, blEnd, std::back_inserter(temp));

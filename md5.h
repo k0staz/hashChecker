@@ -13,6 +13,7 @@ class md5 {
 public:
     md5();
     md5(std::string text);
+    md5(std::vector<char> file);
     std::string toHEX() const;
     friend std::ostream& operator<<(std::ostream&, md5 inst);
 private:
@@ -29,7 +30,8 @@ private:
     void process_block(std::vector<bit8>::iterator blBegin, std::vector<bit8>::iterator blEnd);
 
     //Calculates MD5
-    void calculate(std::string::iterator strBegin, std::string::iterator strEnd);
+    template<class iterator>
+    void calculate(iterator strBegin, iterator strEnd);
 
     //Does following steps: 1.Append 1; 2. Append 0 till L mod 512 == 448 is true; 3.Append original length
     void prepare_input(std::vector<bit8>& ch_vector);

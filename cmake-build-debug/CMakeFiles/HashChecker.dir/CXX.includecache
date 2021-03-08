@@ -9,6 +9,12 @@
 C:/Users/kosta/CLionProjects/HashChecker/main.cpp
 iostream
 -
+string
+-
+fstream
+-
+vector
+-
 md5.h
 C:/Users/kosta/CLionProjects/HashChecker/md5.h
 
