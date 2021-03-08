@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/kosta/CLionProjects/HashChecker/SHA1.h
+cstring
+-
+iostream
+-
+vector
+-
+algorithm
+-
+sstream
+-
+
 C:/Users/kosta/CLionProjects/HashChecker/main.cpp
 iostream
 -
@@ -19,6 +31,8 @@ algorithm
 -
 md5.h
 C:/Users/kosta/CLionProjects/HashChecker/md5.h
+SHA1.h
+C:/Users/kosta/CLionProjects/HashChecker/SHA1.h
 
 C:/Users/kosta/CLionProjects/HashChecker/md5.h
 cstring

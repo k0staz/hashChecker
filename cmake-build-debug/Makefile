@@ -142,6 +142,33 @@ HashChecker/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\HashChecker.dir\build.make CMakeFiles/HashChecker.dir/build
 .PHONY : HashChecker/fast
 
+SHA1.obj: SHA1.cpp.obj
+
+.PHONY : SHA1.obj
+
+# target to build an object file
+SHA1.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\HashChecker.dir\build.make CMakeFiles/HashChecker.dir/SHA1.cpp.obj
+.PHONY : SHA1.cpp.obj
+
+SHA1.i: SHA1.cpp.i
+
+.PHONY : SHA1.i
+
+# target to preprocess a source file
+SHA1.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\HashChecker.dir\build.make CMakeFiles/HashChecker.dir/SHA1.cpp.i
+.PHONY : SHA1.cpp.i
+
+SHA1.s: SHA1.cpp.s
+
+.PHONY : SHA1.s
+
+# target to generate assembly for a file
+SHA1.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\HashChecker.dir\build.make CMakeFiles/HashChecker.dir/SHA1.cpp.s
+.PHONY : SHA1.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -205,6 +232,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... HashChecker
+	@echo ... SHA1.obj
+	@echo ... SHA1.i
+	@echo ... SHA1.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

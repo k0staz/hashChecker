@@ -3,7 +3,9 @@
 #include <fstream>
 #include <vector>
 #include <algorithm>
+
 #include "md5.h"
+#include "SHA1.h"
 
 using namespace std;
 
@@ -61,11 +63,19 @@ int main(int argc, char *argv[]) {
             if (hash_name == "md5") {
                 md5 hashed_file(file);
                 validation(hashed_file.toHEX(), hash, file_name);
+            } else if(hash_name == "sha1") {
+                SHA1 hashed_file(file);
+                validation(hashed_file.toHEX(), hash, file_name);
             }
         } else {
             cout << file_name + " NOT FOUND" << endl;
         }
 
     }
+
+//    SHA1 as("sha5");
+//
+//    cout << as << endl;
+
     return 0;
 }
