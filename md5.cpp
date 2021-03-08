@@ -119,7 +119,6 @@ std::vector<md5::bit32> md5::convert_to32(std::vector<bit8>& ch_vector) {
 }
 
 void md5::process_block(std::vector<bit8>::iterator blBegin, std::vector<bit8>::iterator blEnd) {
-    std::cout << "Processing block" << std::endl;
     std::vector<bit32> abcd({state[0], state[1], state[2], state[3]});
     std::vector<bit8> temp;
     std::copy(blBegin, blEnd, std::back_inserter(temp));
