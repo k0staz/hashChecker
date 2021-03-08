@@ -45,11 +45,8 @@ private:
     static inline bit32 F3(bit32 m, bit32 l, bit32 k);
     static inline bit32 F4(bit32 m, bit32 l, bit32 k);
 
-    //4 other non-linear general operations Ft
-    static inline void FF1(bit32 &a, bit32 &b, bit32 &c, bit32 &d, bit32 &e, bit32 w, bit32 k);
-    static inline void FF2(bit32 &a, bit32 &b, bit32 &c, bit32 &d, bit32 &e, bit32 w, bit32 k);
-    static inline void FF3(bit32 &a, bit32 &b, bit32 &c, bit32 &d, bit32 &e, bit32 w, bit32 k);
-    static inline void FF4(bit32 &a, bit32 &b, bit32 &c, bit32 &d, bit32 &e, bit32 w, bit32 k);
+    //Main operation during calculation
+    static inline void FF(bit32 &a, bit32 &b, bit32 &c, bit32 &d, bit32 &e, bit32 w, bit32 k, int n);
 
     //Shift to the left for n bits for given 32-bits argument
     static inline bit32 shift_left(bit32 x, int n);

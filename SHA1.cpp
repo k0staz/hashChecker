@@ -49,13 +49,13 @@ void SHA1::process_block(std::vector<bit8>::iterator blBegin, std::vector<bit8>:
 
     for (int i = 0; i <=79; i++) {
         if (i <= 19 && i >=0) {
-            FF1(abcde[0], abcde[1], abcde[2], abcde[3], abcde[4], converted_to_w[i], constantsK[0]);
+            FF(abcde[0], abcde[1], abcde[2], abcde[3], abcde[4], converted_to_w[i], constantsK[0], 1);
         } else if (i <= 39 && i >=20) {
-            FF2(abcde[0], abcde[1], abcde[2], abcde[3], abcde[4], converted_to_w[i], constantsK[1]);
+            FF(abcde[0], abcde[1], abcde[2], abcde[3], abcde[4], converted_to_w[i], constantsK[1], 2);
         } else if (i <= 59 && i >=40) {
-            FF3(abcde[0], abcde[1], abcde[2], abcde[3], abcde[4], converted_to_w[i], constantsK[2]);
+            FF(abcde[0], abcde[1], abcde[2], abcde[3], abcde[4], converted_to_w[i], constantsK[2], 3);
         } else if (i <= 79 && i >= 60) {
-            FF4(abcde[0], abcde[1], abcde[2], abcde[3], abcde[4], converted_to_w[i], constantsK[3]);
+            FF(abcde[0], abcde[1], abcde[2], abcde[3], abcde[4], converted_to_w[i], constantsK[3], 4);
         }
     }
 
@@ -119,36 +119,22 @@ SHA1::bit32 SHA1::F4(bit32 m, bit32 l, bit32 k) {
     return m^l^k;
 }
 
-//TODO: Put all functions in 1
-void SHA1::FF1(bit32 &a, bit32 &b, bit32 &c, bit32 &d, bit32 &e, bit32 w, bit32 k) {
-    bit32 temp = shift_left(a, 5) + F1(b, c, d) + e + w + k;
-    e = d;
-    d = c;
-    c = shift_left(b, 30);
-    b = a;
-    a = temp;
-}
-
-void SHA1::FF2(bit32 &a, bit32 &b, bit32 &c, bit32 &d, bit32 &e, bit32 w, bit32 k) {
-    bit32 temp = shift_left(a, 5) + F2(b, c, d) + e + w + k;
-    e = d;
-    d = c;
-    c = shift_left(b, 30);
-    b = a;
-    a = temp;
-}
-
-void SHA1::FF3(bit32 &a, bit32 &b, bit32 &c, bit32 &d, bit32 &e, bit32 w, bit32 k) {
-    bit32 temp = shift_left(a, 5) + F3(b, c, d) + e + w + k;
-    e = d;
-    d = c;
-    c = shift_left(b, 30);
-    b = a;
-    a = temp;
-}
-
-void SHA1::FF4(bit32 &a, bit32 &b, bit32 &c, bit32 &d, bit32 &e, bit32 w, bit32 k) {
-    bit32 temp = shift_left(a, 5) + F4(b, c, d) + e + w + k;
+void SHA1::FF(bit32 &a, bit32 &b, bit32 &c, bit32 &d, bit32 &e, bit32 w, bit32 k, int n) {
+    bit32 temp;
+    switch (n) {
+        case 1:
+            temp = shift_left(a, 5) + F1(b, c, d) + e + w + k;
+            break;
+        case 2:
+            temp = shift_left(a, 5) + F2(b, c, d) + e + w + k;
+            break;
+        case 3:
+            temp = shift_left(a, 5) + F3(b, c, d) + e + w + k;
+            break;
+        case 4:
+            temp = shift_left(a, 5) + F4(b, c, d) + e + w + k;
+            break;
+    }
     e = d;
     d = c;
     c = shift_left(b, 30);
@@ -161,15 +147,12 @@ SHA1::bit32 SHA1::shift_left(bit32 x, int n) {
 }
 
 std::string SHA1::toHEX() const {
-    bit32 bg[] = {__builtin_bswap32(state[0]),__builtin_bswap32(state[1]),__builtin_bswap32(state[2]),
-                  __builtin_bswap32(state[3]),__builtin_bswap32(state[4]),};
-
     char repr[41];
     for (size_t i = 0, j=0; i<5; i++, j+=4) {
-        sprintf(&repr[j*2], "%02X", bg[i] & 0xff);
-        sprintf(&repr[(j+1)*2], "%02X", (bg[i] >> 8) & 0xff);
-        sprintf(&repr[(j+2)*2], "%02X", (bg[i] >> 16) & 0xff);
-        sprintf(&repr[(j+3)*2], "%02X", (bg[i] >> 24) & 0xff);;
+        sprintf(&repr[j*2], "%02X", __builtin_bswap32(state[i]) & 0xff);
+        sprintf(&repr[(j+1)*2], "%02X", (__builtin_bswap32(state[i]) >> 8) & 0xff);
+        sprintf(&repr[(j+2)*2], "%02X", (__builtin_bswap32(state[i]) >> 16) & 0xff);
+        sprintf(&repr[(j+3)*2], "%02X", (__builtin_bswap32(state[i]) >> 24) & 0xff);;
     }
     repr[40] = 0;
 
