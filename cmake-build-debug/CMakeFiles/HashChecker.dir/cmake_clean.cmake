@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/HashChecker.dir/SHA1.cpp.obj"
+  "CMakeFiles/HashChecker.dir/SHA256.cpp.obj"
   "CMakeFiles/HashChecker.dir/main.cpp.obj"
   "CMakeFiles/HashChecker.dir/md5.cpp.obj"
   "HashChecker.exe"

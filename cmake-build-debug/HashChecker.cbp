@@ -88,6 +88,12 @@
 		<Unit filename="C:/Users/kosta/CLionProjects/HashChecker/SHA1.h">
 			<Option target="HashChecker"/>
 		</Unit>
+		<Unit filename="C:/Users/kosta/CLionProjects/HashChecker/SHA256.cpp">
+			<Option target="HashChecker"/>
+		</Unit>
+		<Unit filename="C:/Users/kosta/CLionProjects/HashChecker/SHA256.h">
+			<Option target="HashChecker"/>
+		</Unit>
 		<Unit filename="C:/Users/kosta/CLionProjects/HashChecker/main.cpp">
 			<Option target="HashChecker"/>
 		</Unit>

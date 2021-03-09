@@ -17,22 +17,22 @@ inline md5::bit32 md5::I(bit32 x, bit32 y, bit32 z) {
 }
 
 inline void md5::FF(bit32 &a, bit32 b, bit32 c, bit32 d, bit32 x, bit32 s, bit32 ac) {
-    a = shift_left(a + F(b, c, d) + x + ac, s) + b;
+    a = rotate_left(a + F(b, c, d) + x + ac, s) + b;
 }
 
 inline void md5::GG(bit32 &a, bit32 b, bit32 c, bit32 d, bit32 x, bit32 s, bit32 ac) {
-    a = shift_left(a + G(b, c, d) + x + ac, s) + b;
+    a = rotate_left(a + G(b, c, d) + x + ac, s) + b;
 }
 
 inline void md5::HH(bit32 &a, bit32 b, bit32 c, bit32 d, bit32 x, bit32 s, bit32 ac) {
-    a = shift_left(a + H(b, c, d) + x + ac, s) + b;
+    a = rotate_left(a + H(b, c, d) + x + ac, s) + b;
 }
 
 inline void md5::II(bit32 &a, bit32 b, bit32 c, bit32 d, bit32 x, bit32 s, bit32 ac) {
-    a = shift_left(a + I(b, c, d) + x + ac, s) + b;
+    a = rotate_left(a + I(b, c, d) + x + ac, s) + b;
 }
 
-inline md5::bit32 md5::shift_left(bit32 x, int n) {
+inline md5::bit32 md5::rotate_left(bit32 x, int n) {
     return (x << n) | (x >> (32-n));
 }
 

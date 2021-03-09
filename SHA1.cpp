@@ -78,7 +78,7 @@ std::vector<SHA1::bit32> SHA1::convert_to_w(std::vector<bit32> &ch_vector) {
     std::vector<bit32> w;
     std::copy(ch_vector.begin(), ch_vector.end(), std::back_inserter(w)); //Wt = Mt 0 <=t <= 15
     for (int i = 16; i <= 79; i++) {
-        w.push_back(shift_left(w[i-3]^w[i-8]^w[i-14]^w[i-16], 1));
+        w.push_back(rotate_left(w[i - 3] ^ w[i - 8] ^ w[i - 14] ^ w[i - 16], 1));
     }
     return w;
 }
@@ -123,26 +123,26 @@ void SHA1::FF(bit32 &a, bit32 &b, bit32 &c, bit32 &d, bit32 &e, bit32 w, bit32 k
     bit32 temp;
     switch (n) {
         case 1:
-            temp = shift_left(a, 5) + F1(b, c, d) + e + w + k;
+            temp = rotate_left(a, 5) + F1(b, c, d) + e + w + k;
             break;
         case 2:
-            temp = shift_left(a, 5) + F2(b, c, d) + e + w + k;
+            temp = rotate_left(a, 5) + F2(b, c, d) + e + w + k;
             break;
         case 3:
-            temp = shift_left(a, 5) + F3(b, c, d) + e + w + k;
+            temp = rotate_left(a, 5) + F3(b, c, d) + e + w + k;
             break;
         case 4:
-            temp = shift_left(a, 5) + F4(b, c, d) + e + w + k;
+            temp = rotate_left(a, 5) + F4(b, c, d) + e + w + k;
             break;
     }
     e = d;
     d = c;
-    c = shift_left(b, 30);
+    c = rotate_left(b, 30);
     b = a;
     a = temp;
 }
 
-SHA1::bit32 SHA1::shift_left(bit32 x, int n) {
+SHA1::bit32 SHA1::rotate_left(bit32 x, int n) {
     return (x << n) | (x >> (32-n));
 }
 
@@ -152,7 +152,7 @@ std::string SHA1::toHEX() const {
         sprintf(&repr[j*2], "%02X", __builtin_bswap32(state[i]) & 0xff);
         sprintf(&repr[(j+1)*2], "%02X", (__builtin_bswap32(state[i]) >> 8) & 0xff);
         sprintf(&repr[(j+2)*2], "%02X", (__builtin_bswap32(state[i]) >> 16) & 0xff);
-        sprintf(&repr[(j+3)*2], "%02X", (__builtin_bswap32(state[i]) >> 24) & 0xff);;
+        sprintf(&repr[(j+3)*2], "%02X", (__builtin_bswap32(state[i]) >> 24) & 0xff);
     }
     repr[40] = 0;
 

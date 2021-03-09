@@ -14,6 +14,7 @@ public:
     SHA1(std::vector<char> file);
     std::string toHEX() const;
     friend std::ostream& operator<<(std::ostream&, SHA1 inst);
+
 private:
     void init(); //Set up variables for processing algorithms
     //Assuming that char is 8 bits and int is 32 bits, rename them for convenience
@@ -31,7 +32,7 @@ private:
     void process_block(std::vector<bit8>::iterator blBegin, std::vector<bit8>::iterator blEnd);
 
     //Does following steps: 1.Append 1; 2. Append 0 till L mod 512 == 448 is true; 3.Append original length
-    void prepare_input(std::vector<bit8>& ch_vector);
+    static inline void prepare_input(std::vector<bit8>& ch_vector);
 
     //Convert 8bits array into 32 bits array (breaks a block of 512 bits into 16 blocks per 32 bits)
     static inline std::vector<bit32> convert_to32(std::vector<bit8>& ch_vector);
@@ -48,8 +49,8 @@ private:
     //Main operation during calculation
     static inline void FF(bit32 &a, bit32 &b, bit32 &c, bit32 &d, bit32 &e, bit32 w, bit32 k, int n);
 
-    //Shift to the left for n bits for given 32-bits argument
-    static inline bit32 shift_left(bit32 x, int n);
+    //Rotate to the left for n bits for given 32-bits argument
+    static inline bit32 rotate_left(bit32 x, int n);
 };
 
 

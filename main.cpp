@@ -6,6 +6,7 @@
 
 #include "md5.h"
 #include "SHA1.h"
+#include "SHA256.h"
 
 using namespace std;
 
@@ -63,8 +64,11 @@ int main(int argc, char *argv[]) {
             if (hash_name == "md5") {
                 md5 hashed_file(file);
                 validation(hashed_file.toHEX(), hash, file_name);
-            } else if(hash_name == "sha1") {
+            } else if (hash_name == "sha1") {
                 SHA1 hashed_file(file);
+                validation(hashed_file.toHEX(), hash, file_name);
+            } else if (hash_name == "sha256") {
+                SHA256 hashed_file(file);
                 validation(hashed_file.toHEX(), hash, file_name);
             }
         } else {
@@ -72,10 +76,6 @@ int main(int argc, char *argv[]) {
         }
 
     }
-
-//    SHA1 as("sha5");
-//
-//    cout << as << endl;
 
     return 0;
 }

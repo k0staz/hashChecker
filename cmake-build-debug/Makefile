@@ -169,6 +169,33 @@ SHA1.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\HashChecker.dir\build.make CMakeFiles/HashChecker.dir/SHA1.cpp.s
 .PHONY : SHA1.cpp.s
 
+SHA256.obj: SHA256.cpp.obj
+
+.PHONY : SHA256.obj
+
+# target to build an object file
+SHA256.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\HashChecker.dir\build.make CMakeFiles/HashChecker.dir/SHA256.cpp.obj
+.PHONY : SHA256.cpp.obj
+
+SHA256.i: SHA256.cpp.i
+
+.PHONY : SHA256.i
+
+# target to preprocess a source file
+SHA256.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\HashChecker.dir\build.make CMakeFiles/HashChecker.dir/SHA256.cpp.i
+.PHONY : SHA256.cpp.i
+
+SHA256.s: SHA256.cpp.s
+
+.PHONY : SHA256.s
+
+# target to generate assembly for a file
+SHA256.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\HashChecker.dir\build.make CMakeFiles/HashChecker.dir/SHA256.cpp.s
+.PHONY : SHA256.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -235,6 +262,9 @@ help:
 	@echo ... SHA1.obj
 	@echo ... SHA1.i
 	@echo ... SHA1.s
+	@echo ... SHA256.obj
+	@echo ... SHA256.i
+	@echo ... SHA256.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

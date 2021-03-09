@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/kosta/CLionProjects/HashChecker/SHA1.cpp" "C:/Users/kosta/CLionProjects/HashChecker/cmake-build-debug/CMakeFiles/HashChecker.dir/SHA1.cpp.obj"
+  "C:/Users/kosta/CLionProjects/HashChecker/SHA256.cpp" "C:/Users/kosta/CLionProjects/HashChecker/cmake-build-debug/CMakeFiles/HashChecker.dir/SHA256.cpp.obj"
   "C:/Users/kosta/CLionProjects/HashChecker/main.cpp" "C:/Users/kosta/CLionProjects/HashChecker/cmake-build-debug/CMakeFiles/HashChecker.dir/main.cpp.obj"
   "C:/Users/kosta/CLionProjects/HashChecker/md5.cpp" "C:/Users/kosta/CLionProjects/HashChecker/cmake-build-debug/CMakeFiles/HashChecker.dir/md5.cpp.obj"
   )

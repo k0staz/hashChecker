@@ -47,8 +47,8 @@ private:
     static inline void II(bit32& a, bit32 b, bit32 c, bit32 d, bit32 x, bit32 s, bit32 ac);
 
 
-    //Shift to the left for n bits for given 32-bits argument
-    static inline bit32 shift_left(bit32 x, int n);
+    //Rotate to the left for n bits for given 32-bits argument
+    static inline bit32 rotate_left(bit32 x, int n);
     //Convert 8bits array into 32 bits array (breaks a block of 512 bits into 16 blocks per 32 bits)
     static inline std::vector<bit32> convert_to32(std::vector<bit8>& ch_vector);
     //Converting to hexadecimal format
