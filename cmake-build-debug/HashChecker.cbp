@@ -82,6 +82,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/kosta/CLionProjects/HashChecker/SHA.cpp">
+			<Option target="HashChecker"/>
+		</Unit>
+		<Unit filename="C:/Users/kosta/CLionProjects/HashChecker/SHA.h">
+			<Option target="HashChecker"/>
+		</Unit>
 		<Unit filename="C:/Users/kosta/CLionProjects/HashChecker/SHA1.cpp">
 			<Option target="HashChecker"/>
 		</Unit>
