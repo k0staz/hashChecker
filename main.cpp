@@ -46,9 +46,9 @@ int main(int argc, char *argv[]) {
     if (argc > 1){
         input_file.open(argv[1]);
         path = argv[2];
-    } else { //Used for tasting via IDE, in order to use on other pc, change values
-        input_file.open("C:\\Users\\kosta\\Documents\\ggg\\input.txt");
-        path = "C:\\Users\\kosta\\Documents\\ggg\\files_test\\";
+    } else { //Used for testing via IDE, in order to use on other pc, change values
+        input_file.open("");
+        path = "";
     }
     while (input_file.good()) {
         string line, file_name, hash_name, hash;

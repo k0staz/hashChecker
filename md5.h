@@ -17,6 +17,7 @@ public:
     md5();
     md5(std::string text);
     md5(std::vector<char> file);
+    //Converting to hexadecimal format
     std::string toHEX() const;
     friend std::ostream& operator<<(std::ostream&, md5 inst);
 private:
@@ -54,7 +55,6 @@ private:
     static inline bit32 rotate_left(bit32 x, int n);
     //Convert 8bits array into 32 bits array (breaks a block of 512 bits into 16 blocks per 32 bits)
     static inline std::vector<bit32> convert_to32(std::vector<bit8>& ch_vector);
-    //Converting to hexadecimal format
 };
 
 
