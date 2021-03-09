@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
     if (argc > 1){
         input_file.open(argv[1]);
         path = argv[2];
-    } else {
+    } else { //Used for tasting via IDE, in order to use on other pc, change values
         input_file.open("input.txt");
         path = "files_test/";
     }
@@ -70,6 +70,8 @@ int main(int argc, char *argv[]) {
             } else if (hash_name == "sha256") {
                 SHA256 hashed_file(file);
                 validation(hashed_file.toHEX(), hash, file_name);
+            } else {
+                cout << hash_name + " algorithm is not supported" << endl;
             }
         } else {
             cout << file_name + " NOT FOUND" << endl;

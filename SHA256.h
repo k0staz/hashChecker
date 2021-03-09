@@ -3,6 +3,12 @@
 
 #include "SHA.h"
 
+/**
+ * Implementation of SHA256 hash-algorithm.
+ *
+ * Inherits two functions from SHA class (prepare_input and convert_to32).
+ *
+ */
 class SHA256 : SHA {
 public:
     SHA256();

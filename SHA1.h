@@ -2,7 +2,12 @@
 #define HASHCHECKER_SHA1_H
 
 #include "SHA.h"
-
+/**
+ * Implementation of SHA1 hash-algorithm.
+ *
+ * Inherits two functions from SHA class (prepare_input and convert_to32).
+ *
+ */
 class SHA1 : SHA {
 public:
     SHA1();

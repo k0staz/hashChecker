@@ -7,6 +7,12 @@
 #include <algorithm>
 #include <sstream>
 
+/**
+ * Basic class for SHA hash functions.
+ *
+ * Has functions that  are same in derivative hash-algorithms(SHA1 and SHA256)
+ *
+ */
 class SHA {
 private:
 

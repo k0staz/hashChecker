@@ -8,7 +8,10 @@
 #include <algorithm>
 #include <sstream>
 
-
+/**
+ * Implementation of MD5 hash-algorithm.
+ *
+ */
 class md5 {
 public:
     md5();
