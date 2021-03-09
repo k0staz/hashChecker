@@ -3,6 +3,7 @@
 #include <fstream>
 #include <vector>
 #include <algorithm>
+#include <filesystem>
 
 #include "md5.h"
 #include "SHA1.h"
@@ -12,7 +13,7 @@ using namespace std;
 
 vector<char> read_file(const string& path){
     ifstream f;
-    f.open(path, ios::binary);
+    f.open(std::filesystem::u8path(path), ios::binary);
     vector<char> file;
     if (f.is_open()) {
         f.seekg(0, ios::end);
@@ -46,8 +47,8 @@ int main(int argc, char *argv[]) {
         input_file.open(argv[1]);
         path = argv[2];
     } else { //Used for tasting via IDE, in order to use on other pc, change values
-        input_file.open("input.txt");
-        path = "files_test/";
+        input_file.open("C:\\Users\\kosta\\Documents\\ggg\\input.txt");
+        path = "C:\\Users\\kosta\\Documents\\ggg\\files_test\\";
     }
     while (input_file.good()) {
         string line, file_name, hash_name, hash;
